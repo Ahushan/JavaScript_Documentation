@@ -626,3 +626,20 @@ console.log(
   "Stored Product:",
   JSON.parse(localStorage.getItem("advancedProduct"))
 );
+
+// MARK: 51. Generators and iterators
+function* gen() {
+  yield 1;
+  yield 2;
+}
+for (let value of gen()) console.log(value);
+
+//MARK: 52. Event Loop, Call Stack, Task Queue
+console.log("1");
+setTimeout(() => console.log("2"), 0);
+Promise.resolve().then(() => console.log("3"));
+console.log("4"); // Order: 1, 4, 3, 2
+
+//MARK: 53. Optional Chaining & Nullish Coalescing
+let user2 = { profile: null };
+console.log(user2?.profile?.name ?? "Guest");
