@@ -490,10 +490,10 @@ console.log("Multiplication Result:", multiplyByTwo(5)); // Outputs: 10
 function throttle(func, limit) {
   let inThrottle;
   return function () {
+    func.apply(context, args);
     const args = arguments;
     const context = this;
     if (!inThrottle) {
-      func.apply(context, args);
       inThrottle = true;
       setTimeout(() => (inThrottle = false), limit);
     }
@@ -635,6 +635,8 @@ function* gen() {
 for (let value of gen()) console.log(value);
 
 //MARK: 52. Event Loop, Call Stack, Task Queue
+console.log("Event Loop, Call Stack, Task Queue");
+
 console.log("1");
 setTimeout(() => console.log("2"), 0);
 Promise.resolve().then(() => console.log("3"));
